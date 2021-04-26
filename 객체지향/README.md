@@ -21,9 +21,61 @@
   - 인스턴스(객체)란 클래스에서 정의한 것을 실제로 메모리상에 할당된 것 즉, 프로그램에서 사용되는 데이터
 2. 추상화
   - 불필요한 정보를 숨기고 중요한 정보만을 표현함으로써 **공통의 속성이나 기능을 묶어 이름을 붙이는 것**
-4. 캡슐화
+3. 캡슐화
   - 코드를 재수정 없이 재활용하는 것을 목적
   - 관련된 기능과 특성을 한 곳에 모르고 분류
   - 객체 지향 프로그래밍에서 **기능과 특성의 모음을** ***클래스*** **라는** ***캡슐*** **에 분류해서 넣는것**
-6. 상속
-7. 다형성
+4. 상속
+  - 부모 클래스의 속성과 기능을 그대로 이어받아 사용할 수 있게하고 일부 변경이 가능
+  - 다중상속 불가 , 인터페이스는 다중상속 가능 
+5. 다형성
+  - 오버라이딩과 오버로딩등, 하나의 변수명, 함수명 등이 상황에 따라 다른 의미로 해석될 수 있는 것
+
+
+## SOLID 원칙
+- 소프트웨어를 설계함에 있어 이해하기 쉽고, 유연하며, 유지보수가 편하도록 도와주는 5가지 원칙
+- 단일책임원칙, 개방폐쇄원칙, 리스코프치환원칙, 인터페이스분리원칙, 의존성역전원칙
+
+## 단일 책임 원칙 ( SRT, Single Responsibility Principle )
+- 모든 클래스는 단 한가지의 책임을 부여받아, 수정할 이유가 단 한 가지여야 한다.
+- 즉, 클래스에 속해있는 멤버들과 메소드는 모두 공통적으로 하나의 서비스를 위해 필요
+- 적용 방법
+  - 각 책임을 각각의 개별 클래스로 분할
+  - 분할 후에도 비슷한 책임을 갖고 있다면 **부모클래스로 추출** , 필드나 메소드를 옮길 수도 있다.
+  - 클래스 이름을 해당 클래스의 책임을 나타낼 수 있도록 작성
+- SRT 적용 전
+```
+class Car{
+  private String serialNum;
+  private String engine;
+  private String color;
+  private String model
+  public Car(String serialNum, String engine, String color, String model){
+    this.serialNum = serialNum;
+    this.engine = engine;
+    ...
+  }
+}
+```
+- SRT 적용 후
+```
+ class Car{
+   private String serialNum;
+   private CarSpec spec;
+   public Car(String serialNum, CarSpec spec){
+     this.serialNum = serialNum;
+     this.spec = spec;
+   }
+ }
+ 
+ class CarSpec{
+   private String engine;
+   private String color;
+   private String model;
+   public CarSpec(String engine, String color, String model){
+    this.engine = engine;
+    this.color = color;
+    this.model = model;
+   }
+ }
+```
