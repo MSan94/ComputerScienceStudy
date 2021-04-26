@@ -79,3 +79,51 @@ class Car{
    }
  }
 ```
+-> 공통으로 쓸수있는 engine, color, model을 추출하여 CarSpec 클래스를 생성했다.
+-> 변경이 발생하더라도 Car 클래스를 수정할 필요가 없다.
+
+## 개방 폐쇄 원칙 ( OCP, Open-Closed Principle )
+- 소프트웨어의 구성요소 (컴퍼넌트, 클래스, 모듈, 함수)가 **확장**에 대해 **유연**해야 하지만, **수정**에는 **폐쇄적**이어야 한다.
+- 관리와 재사용이 가능한 코드를 만드는 기반
+- 개방 폐쇄 원칙 적용에 중요한 매커니즘은 **추상화** , **다형성**
+- 변경될 것과, 변경하지 않을 것을 구분하여 인터페이스를 정의하고, 구체적 타입 대신 인터페이스에 의존하도록 코드 작성
+- 상속보다는 포함 관계를 활용
+- OCP 적용 전
+```
+ class Car{
+   private String serialNum;
+   private CarSpec spec;
+   public Car(String serialNum, CarSpec spec){
+     this.serialNum = serialNum;
+     this.spec = spec;
+   }
+ }
+ 
+ class CarSpec{ ... }
+ 
+ class AirPlane{
+   private String serialNum;
+   private AirPlaneSpec spec;
+   public car(String serialNum, AirPlane spec){
+    this.serialNum = serialNum;
+    this.spec = spec;
+   }
+ }
+ 
+ class AirPlaneSpec{ ... }
+```
+- OCP 적용 후
+```
+ class Car extends Vehicle{
+   private String serialNum;
+   private CarSpec spec;
+   public Car(String serialNum, CarSpec spec){
+     this.serialNum = serialNum;
+     this.spec = spec;
+   }
+ }
+ class CarSpec extends VehicleSpec{ ... }
+ 
+ class AirPlane extends Vehicle{ ... }
+ class AirPlaneSpec extends VehicleSpec{ ... }
+```
