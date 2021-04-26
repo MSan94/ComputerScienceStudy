@@ -4,4 +4,4 @@
 - OOP(Object-Oriented Programming)
 - 컴퓨터 프로그래밍 패러다임 중 하나
 - 필요한 데이터를 **<span style="color:red">추상화</span>시켜 상태와 행위를 가진 객체를 만들고, 그 객체들간의 상호작용을 통해 로직 구성을 하는 프로그래밍 방법**
-<span style="color:yellow">추상화</span>
+- <span style="color:yellow">노란 글씨입니다.</span>
