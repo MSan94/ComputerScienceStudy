@@ -137,3 +137,28 @@ class Car{
 - 하위 클래스의 공통된 연산을 인터페이스로 제공하고, 구분할 수 있는 멤버를 둔다.
 - 하위 클래스는 확장만 수행해야 하며, 상위 클래스의 책임을 무시할 수 없다.
 - 하위 클래스가 상속받은 기능 외 필요한게 있다면 구체화(implements) 이용
+```
+void f(){
+  LinkedList list = new LinkedList();
+  //...
+  modify(list);
+}
+void modify(LinkedList list){
+  list.add(...);
+  doMethod(list);
+}
+```
+-> LinkedList의 속도개선을 위해 HashSet을 사용한다면? 
+-> LinkedList와 HashSet 모두 Collection Interface를 상속
+```
+void f(){
+  Collection collection = new HashSet();
+  //...
+  modify(list);
+}
+void mofidy(Collection collection){
+  collection.add(..);
+  doMethod(collection);
+}
+```
+-> 이렇게 Collection 생성 부분을 바꿔주면 어떤 컬렉션 클래스든 사용할 수 있다.
