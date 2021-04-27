@@ -195,4 +195,5 @@ Alarm{
 - 실제 사용 관계는 바뀌지 않으며, 추상을 매개로 메시지를 주고 받음으로써 관계를 최대한 느슨하게 만든다
 - 구성에 대한 설정이 편리해지고 모듈을 테스트하기 쉽다.
 - 적용을 위해 추상적인 계층을 만든다.
-- ![image](https://user-images.githubusercontent.com/81352078/116171768-5b852800-a744-11eb-9a0a-b81863650d11.png)
+
+![image](https://user-images.githubusercontent.com/81352078/116171768-5b852800-a744-11eb-9a0a-b81863650d11.png)
